@@ -18,5 +18,6 @@ Dependencies
 Setup
 -----
 
-- All you need to do is place this script in your application's root and update the variables, then you're good to go. 
+- Place this script in your application's root and update the variables.
 - Ensure your manifest has something like android:versionCode="1" if you want versioning to work.
+- Add ```lastCommit.txt``` to your gitignore.

@@ -7,6 +7,10 @@ hockey_app_id=''
 hockey_api_token=''
 git_upload_branch=''
 
+# ===== Vars (Do not touch) =====
+release_notes="release_notes.tmp.txt"
+last_hockey_push="lastCommit.txt"
+
 # ===== Setup =====
 # Expanding aliases for easy gradle setup
 shopt -s expand_aliases
@@ -28,7 +32,18 @@ function updateVersionCode {
 }
 
 function upload {
-	puck -submit=auto -download=true -app_id="$hockey_app_id" -api_token="$hockey_api_token" "$apk"
+	#Getting changes
+	if [[ -f "$last_hockey_push" ]]; then
+    	lastSHA=`cat $last_hockey_push`
+    	currentSHA=`git rev-parse HEAD`
+    	git log --pretty=oneline --abbrev-commit $lastSHA...$currentSHA > "$release_notes"
+    #No notes
+    else
+    	echo "No notes" > "$release_notes"
+	fi
+
+	puck -submit=auto -download=true -notes_path="$release_notes" -app_id="$hockey_app_id" -api_token="$hockey_api_token" "$apk"
+	rm "$release_notes"
 }
 
 # ===== Start =====
@@ -55,3 +70,8 @@ echo "--- Pushing to GIT"
 git add "$android_manifest"
 git commit -am "bash-hockey-puck: Bumped version number"
 git push origin "$git_upload_branch"
+
+echo "--- Writing SHA"
+git rev-parse HEAD > "$last_hockey_push"
+
+echo "--- bash-hockey-puck finished"
