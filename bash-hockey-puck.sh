@@ -63,7 +63,7 @@ updateVersionCode
 echo "--- Building App"
 gradle build
 
-echo "--- Uploading to puck"
+echo "--- Uploading to HockeyApp"
 upload
 
 echo "--- Pushing to GIT"
