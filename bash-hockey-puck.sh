@@ -68,7 +68,7 @@ upload
 
 echo "--- Pushing to GIT"
 git add "$android_manifest"
-git commit -am "bash-hockey-puck: Bumped version number"
+git commit -am ":new: Bash-Hockey-Puck :new: Bumped version number"
 git push origin "$git_upload_branch"
 
 echo "--- Writing SHA"
