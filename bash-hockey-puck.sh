@@ -36,7 +36,7 @@ function upload {
 	if [[ -f "$last_hockey_push" ]]; then
     	lastSHA=`cat $last_hockey_push`
     	currentSHA=`git rev-parse HEAD`
-    	git log --pretty=oneline --abbrev-commit $lastSHA...$currentSHA > "$release_notes"
+	git log --pretty=oneline --abbrev-commit $lastSHA...$currentSHA | cut -d" " -f2- > "$release_notes"
     #No notes
     else
     	echo "No notes" > "$release_notes"
