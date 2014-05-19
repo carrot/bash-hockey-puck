@@ -26,5 +26,6 @@ Usage
 -----
 After everything has been setup properly the script can simply be ran in the terminal.
 
-Flags: 
+Flags 
+-----
 ```-silent```: Causes there to be no HockeyApp notification.
