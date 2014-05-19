@@ -21,3 +21,10 @@ Setup
 - Place this script in your application's root and update the variables.
 - Ensure your manifest has something like android:versionCode="1" if you want versioning to work.
 - Add ```lastCommit.txt``` to your gitignore.
+
+Usage
+-----
+After everything has been setup properly the script can simply be ran in the terminal.
+
+Flags: 
+```-silent```: Causes there to be no HockeyApp notification.
