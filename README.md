@@ -1,6 +1,8 @@
 Bash-Hockey-Puck
 ================
 
+> This library is deprecated and is no longer being supported.  We have switched to using [Ash-Slapshot](https://github.com/carrot/ash-slapshot) to cut our Hockey Builds.
+
 Purpose
 -------
 
